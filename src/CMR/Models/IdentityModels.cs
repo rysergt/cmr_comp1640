@@ -18,6 +18,8 @@ namespace CMR.Models
             return userIdentity;
         }
         
+        
+        public virtual ICollection<Assignment> AssignedCourses { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
     }
 
@@ -34,5 +36,6 @@ namespace CMR.Models
         }
 
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Assignment> Assignment { get; set; }
     }
 }

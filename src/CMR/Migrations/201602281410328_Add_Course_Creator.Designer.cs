@@ -7,13 +7,13 @@ namespace CMR.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Add_Course : IMigrationMetadata
+    public sealed partial class Add_Course_Creator : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_Course));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_Course_Creator));
         
         string IMigrationMetadata.Id
         {
-            get { return "201602281157214_Add_Course"; }
+            get { return "201602281410328_Add_Course_Creator"; }
         }
         
         string IMigrationMetadata.Source

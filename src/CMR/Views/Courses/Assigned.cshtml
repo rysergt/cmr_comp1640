@@ -1,0 +1,16 @@
+﻿@model CMR.Models.ApplicationUser
+@{
+    ViewBag.Title = "Assigned Courses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (Model.AssignedCourses.Any())
+{
+    foreach(var assignment in Model.AssignedCourses)
+    {
+        @Html.ActionLink(assignment.Course.Code + " - " + assignment.Course.Name, "Details", new { id = assignment.Course.Id})
+        <br />
+    }
+}

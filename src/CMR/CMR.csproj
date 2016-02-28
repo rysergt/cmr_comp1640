@@ -179,17 +179,23 @@
     <Compile Include="Migrations\201602280940051_Identity.Designer.cs">
       <DependentUpon>201602280940051_Identity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602281157214_Add_Course.cs" />
-    <Compile Include="Migrations\201602281157214_Add_Course.Designer.cs">
-      <DependentUpon>201602281157214_Add_Course.cs</DependentUpon>
+    <Compile Include="Migrations\201602281408437_Add_Courses_And_User_Manage.cs" />
+    <Compile Include="Migrations\201602281408437_Add_Courses_And_User_Manage.Designer.cs">
+      <DependentUpon>201602281408437_Add_Courses_And_User_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602281410328_Add_Course_Creator.cs" />
+    <Compile Include="Migrations\201602281410328_Add_Course_Creator.Designer.cs">
+      <DependentUpon>201602281410328_Add_Course_Creator.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AssignModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -252,6 +258,8 @@
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
     <Content Include="Views\Account\Denied.cshtml" />
+    <Content Include="Views\Courses\Assign.cshtml" />
+    <Content Include="Views\Courses\Assigned.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -267,8 +275,11 @@
     <EmbeddedResource Include="Migrations\201602280940051_Identity.resx">
       <DependentUpon>201602280940051_Identity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602281157214_Add_Course.resx">
-      <DependentUpon>201602281157214_Add_Course.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602281408437_Add_Courses_And_User_Manage.resx">
+      <DependentUpon>201602281408437_Add_Courses_And_User_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602281410328_Add_Course_Creator.resx">
+      <DependentUpon>201602281410328_Add_Course_Creator.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

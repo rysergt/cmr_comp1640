@@ -6,7 +6,7 @@ namespace CMR.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CMR.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
@@ -15,7 +15,7 @@ namespace CMR.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
-
+            base.Seed(context);
             if (!context.Roles.Any())
             {
                 var store = new RoleStore<IdentityRole>(context);
@@ -31,7 +31,9 @@ namespace CMR.Migrations
             {
                 SeedAdmin(context);
                 SeedCourseLeader(context);
-            }
+            };
+
+            SeedCourse(context);
         }
 
         public void SeedAdmin(ApplicationDbContext context)
@@ -71,6 +73,28 @@ namespace CMR.Migrations
                 {
                     manager.AddToRole(courseLeader.Id, "Course Leader");
                 }
+            }
+        }
+
+        public void SeedCourse(ApplicationDbContext context)
+        {
+            var admin = context.Users.Single(u => u.UserName == "admin");
+            Course[] courses =
+            {
+                new Course { Code = "COMP1640", Name = "Enterprise Web Software Development" },
+                new Course { Code = "COMP1648", Name = "Development, Frameworks and Methods" },
+                new Course { Code = "COMP1639", Name = "Database Engineering" },
+                new Course { Code = "COMP1649", Name = "Interaction Design" },
+                new Course { Code = "COMP1661", Name = "Application Development for Mobile Devices" },
+                new Course { Code = "COMP1689", Name = "Programming Frameworks" },
+                new Course { Code = "COMP1108", Name = "Project (Computing) - for External Programmes" }
+            };
+
+            foreach(Course course in courses)
+            {
+                course.Creator = admin;
+                context.Courses.Add(course);
+                context.SaveChanges();
             }
         }
     }
