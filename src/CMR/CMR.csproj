@@ -171,6 +171,7 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Custom\AccessDeniedAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,9 +179,9 @@
     <Compile Include="Migrations\201602280940051_Identity.Designer.cs">
       <DependentUpon>201602280940051_Identity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602281018094_Add_Course.cs" />
-    <Compile Include="Migrations\201602281018094_Add_Course.Designer.cs">
-      <DependentUpon>201602281018094_Add_Course.cs</DependentUpon>
+    <Compile Include="Migrations\201602281157214_Add_Course.cs" />
+    <Compile Include="Migrations\201602281157214_Add_Course.Designer.cs">
+      <DependentUpon>201602281157214_Add_Course.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -250,6 +251,7 @@
     <Content Include="Views\Courses\Details.cshtml" />
     <Content Include="Views\Courses\Edit.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Views\Account\Denied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,15 +261,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201602280940051_Identity.resx">
       <DependentUpon>201602280940051_Identity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602281018094_Add_Course.resx">
-      <DependentUpon>201602281018094_Add_Course.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201602281157214_Add_Course.resx">
+      <DependentUpon>201602281157214_Add_Course.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

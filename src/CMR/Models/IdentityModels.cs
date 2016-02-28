@@ -33,6 +33,6 @@ namespace CMR.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<CMR.Models.Course> Courses { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 }

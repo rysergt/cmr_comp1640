@@ -13,7 +13,7 @@ namespace CMR.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201602281018094_Add_Course"; }
+            get { return "201602281157214_Add_Course"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,8 +3,6 @@ namespace CMR.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -15,8 +13,9 @@ namespace CMR.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CMR.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
+
             if (!context.Roles.Any())
             {
                 var store = new RoleStore<IdentityRole>(context);
@@ -30,14 +29,47 @@ namespace CMR.Migrations
 
             if (!context.Users.Any())
             {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-                var admin = new ApplicationUser { UserName = "admin", Email = "admin@test.com" };
+                SeedAdmin(context);
+                SeedCourseLeader(context);
+            }
+        }
 
+        public void SeedAdmin(ApplicationDbContext context)
+        {
+            var store = new UserStore<ApplicationUser>(context);
+            var manager = new UserManager<ApplicationUser>(store);
+
+            ApplicationUser[] admins =
+            {
+                new ApplicationUser { UserName = "admin", Email = "admin@test.com" }
+            };
+
+            foreach (ApplicationUser admin in admins)
+            {
                 var result = manager.Create(admin, "password");
                 if (result.Succeeded)
                 {
                     manager.AddToRole(admin.Id, "Administrator");
+                }
+            }
+        }
+
+        public void SeedCourseLeader(ApplicationDbContext context)
+        {
+            var store = new UserStore<ApplicationUser>(context);
+            var manager = new UserManager<ApplicationUser>(store);
+
+            ApplicationUser[] courseLeaders =
+            {
+                new ApplicationUser { UserName = "leader", Email = "leader@test.com" }
+            };
+
+            foreach (ApplicationUser courseLeader in courseLeaders)
+            {
+                var result = manager.Create(courseLeader, "password");
+                if (result.Succeeded)
+                {
+                    manager.AddToRole(courseLeader.Id, "Course Leader");
                 }
             }
         }

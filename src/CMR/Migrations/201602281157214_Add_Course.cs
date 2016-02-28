@@ -12,8 +12,8 @@ namespace CMR.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        code = c.String(),
-                        name = c.String(),
+                        Code = c.String(),
+                        Name = c.String(),
                         User_Id = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)

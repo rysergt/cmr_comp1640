@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using CMR.Models;
+using Microsoft.AspNet.Identity;
+using CMR.Custom;
 
 namespace CMR.Controllers
 {
+    [AccessDeniedAuthorize(Roles = "Administrator")]
     public class CoursesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -50,6 +49,8 @@ namespace CMR.Controllers
         {
             if (ModelState.IsValid)
             {
+                var currentUser = db.Users.Find(User.Identity.GetUserId());
+                course.User = currentUser;
                 db.Courses.Add(course);
                 db.SaveChanges();
                 return RedirectToAction("Index");
